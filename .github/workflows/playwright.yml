@@ -1,4 +1,4 @@
-name: My First Github Actions
+name: Run my Playwright tests
 
 on:
   push: 
@@ -6,9 +6,17 @@ on:
       - main
 
 jobs:
-  hello:
+  Playwright Test 1:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print hello
-        run: echo "Hello"
+      - name: Checkout Repo or basically cloning the repo into github runner workspace
+        run: actions/checkout@v4
+      - name: Setup Node JS
+        run: actions/setup-node@v4
+      - name: Install Playwright Dependencies as per package-lock.jsom
+        run: npm ci
+      - name: Install Playwright Browsers
+        run: npx playwright install
+      - name: Run the Test1
+        run: npx playwright test Test1.spec.js
