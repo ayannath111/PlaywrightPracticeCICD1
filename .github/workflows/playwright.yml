@@ -11,9 +11,9 @@ jobs:
 
     steps:
       - name: Checkout Repo or basically cloning the repo into github runner workspace
-        run: actions/checkout@v4
+        uses: actions/checkout@v4
       - name: Setup Node JS
-        run: actions/setup-node@v4
+        uses: actions/setup-node@v4
       - name: Install Playwright Dependencies as per package-lock.jsom
         run: npm ci
       - name: Install Playwright Browsers
